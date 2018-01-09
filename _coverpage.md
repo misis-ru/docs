@@ -1,4 +1,5 @@
-![logo](_media/misis.png)
+![logo](_media/logo-sm-white.png)
+![color](#139EED)
 
 # NITU MISiS Docs
 
@@ -6,4 +7,4 @@
 
 
 [GitHub](https://github.com/misis-ru/docs/)
-[Get Started](#docs)
+[В начало](#docs)

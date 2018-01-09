@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <title>NITU MISiS Docs</title>
+  <link rel="icon" href="_media/favicon.ico">
   <style>
     nav.app-nav li ul {min-width:100px}
   </style>
@@ -32,8 +33,7 @@
           hook.beforeEach(function (html) {
             var url = 'https://github.com/misis-ru/docs/blob/master/' + vm.route.file
             var editHtml = '[:memo: Edit Document](' + url + ')\n'
-            return editHtml
-              + html
+            return html
               + '\n----\n'
               + 'Last modified {docsify-updated} '
               + editHtml
