@@ -1,5 +1,4 @@
-![logo](_media/logo-sm-white.png)
-![color](#139EED)
+![logo](_media/logo-sm-black.png)
 
 # NITU MISiS Docs
 
