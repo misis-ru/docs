@@ -51,12 +51,6 @@ Method| HTTP request| Description
 Parameter| Description
 ---|---
 dom=| domain name to perform with (authorize)
-limit=| the number of email addresses to fetch, 50 by default
-offset=| the number of email addresses to skip, 0 by default
-nombox=1| list only aliases
-noalias=1| list only mailboxes
-mlist=1| format output as: `'real name' <email@addre.ss>`
-v=1| multifield output
 login=| filter list by (part of) login
 name=| filter list by (part of) real name
 dep=| filter list by (part of) department
@@ -70,6 +64,13 @@ adate=| filter list by (part of) last seen date (n for never); should be in 'yyy
 state=| filter list by state (0/1/-1 for disabled/enabled/deleted)
 mode=| filter list by mode (0/1 for not/stored email locally)
 fwd=| filter list by forwards presence (0/1 for not/existed)
+limit=| the number of email addresses to fetch, 50 by default
+offset=| the number of email addresses to skip, 0 by default
+sort=| order list by name/dep/loc/phone/mail/note/quota/login/date/adate
+nombox=1| list only aliases
+noalias=1| list only mailboxes
+mlist=1| format output as: `'real name' <email@addre.ss>`
+v=1| multifield output
 
 # get
 > output mailbox info
@@ -91,6 +92,7 @@ Parameter| Description
 dom=| domain name to perform with (authorize)
 limit=| the number of forwards to fetch, 50 by default
 offset=| the number of forwards to skip, 0 by default
+sort=| order list by mbox/dest
 state=| filter list by state (0/1/-1 for disabled/enabled/deleted)
 
 # lsdom
