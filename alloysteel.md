@@ -33,7 +33,7 @@ net
 - pop3/pop3s/imap4/imap4s server (dovecot)
 - antispam server (rspamd)
 - antivirus server (clamd)
-- mailing lists server (mailman3)
+- mailing lists server (\*mlist)
 - rdbms server (postgresql)
     - vmail
     - roundcube
@@ -309,6 +309,29 @@ net
 0,0,,,0,usrlocal,,,/usr/local/
 ```
 
+## vanadium
+net
+```
+  85.143.104.155
+  ssh tcp/22
+  httpd tcp/80 tcp/443
+```
+- directum rx frontend
+- reverce proxy
+    - drx.misis.ru
+- web redirector
+- ssh server
+- smtp smarthost (postfix)
+- local backup (\*bur)
+
+```
+,,,,0,burself,,,/opt/bur/,--include=*.bur --exclude=*
+,,,,0,etc,,,/etc/
+,,,,0,root,,,/root/
+,,,,0,home,,,/home/
+0,0,,,0,usrlocal,,,/usr/local/
+```
+
 ## cobalt
 net
 ```
@@ -341,8 +364,149 @@ net
 ## tin
 net
 ```
-  10.1.0.247
+  10.20.39.37
   + razr.misis.ru
+  ssh tcp/22
+  httpd tcp/80 tcp/443
+  postgres tcp/5432
+  containers tcp/3000:5000
+```
+- lk devel app server
+- docker server
+    - web server (nginx + dockergen)
+        - lk-test.misis.ru
+        - alk-test.misis.ru
+        - edu-test.misis.ru
+        - anketa-test.misis.ru
+    - application servers for each developer
+- build and deploy system (\*doper)
+- ssh server
+- smtp smarthost (postfix)
+- local backup (\*bur)
+
+```
+0,,,,0,globals,pgsql
+,0,0,0,,portal_development,pgsql
+,,,,0,etc,,,/etc/
+,,,,0,docker,,,/opt/docker/
+,,,,0,localbin,,,/usr/local/bin/
+0,0,,,0,root,,,/root/
+0,0,,,0,home,,,/home/
+```
+
+## lead
+net
+```
+  10.20.39.38
+  + rendr.misis.ru
+  ssh tcp/22
+  httpd tcp/80 tcp/443
+  postgres tcp/5432
+  containers tcp/3000:5000
+```
+- lk prod app server
+- docker server
+    - web server (nginx + dockergen)
+        - login.misis.ru lk.misis.ru www.login www.lk
+        - lk-new.misis.ru
+        - alk.misis.ru
+        - alk-new.misis.ru
+        - edu.misis.ru
+        - edu-new.misis.ru
+        - anketa.misis.ru www.anketa
+        - anketa-new.misis.ru
+        - pay-test.misis.ru
+    - application servers
+- build and deploy system (\*doper)
+- ssh server
+- smtp smarthost (postfix)
+- local backup (\*bur)
+
+```
+0,,,,0,globals,pgsql
+,,,,,portal_production,pgsql
+,,,,0,etc,,,/etc/
+,,,,0,docker,,,/opt/docker/
+,,,,0,localbin,,,/usr/local/bin/
+0,0,,,0,root,,,/root/
+0,0,,,0,home,,,/home/
+```
+
+## zirconium
+net
+```
+  10.20.39.35
+  ssh tcp/22
+  postgres tcp/5432
+```
+- lk devel database
+- rdbms server (postgresql)
+    - portal_development
+    - sandboxes
+- ssh server
+- smtp smarthost (postfix)
+- local backup (\*bur)
+
+```
+0,,,,0,globals,pgsql
+,,,,0,portal_development,pgsql
+,,,,0,etc,,,/etc/
+,,,,0,localbin,,,/usr/local/bin/
+0,0,,,0,root,,,/root/
+0,0,,,0,home,,,/home/
+```
+
+## selenium
+net
+```
+  10.20.39.36
+  ssh tcp/22
+  postgres tcp/5432
+```
+- lk prod database
+- rdbms server (postgresql)
+    - portal_production
+    - portal_test
+- ssh server
+- smtp smarthost (postfix)
+- local backup (\*bur)
+
+```
+0,,,,0,globals,pgsql
+,,,,0,portal_production,pgsql
+,,,,0,etc,,,/etc/
+,,,,0,localbin,,,/usr/local/bin/
+0,0,,,0,root,,,/root/
+0,0,,,0,home,,,/home/
+```
+
+## cerium
+net
+```
+  10.20.39.49
+  ssh tcp/22
+  postgres tcp/5432
+```
+- directum rx database
+- rdbms server (postgresql)
+- ssh server
+- smtp smarthost (postfix)
+- local backup (\*bur)
+
+```
+0,,,,0,globals,pgsql
+,,,,0,drx,pgsql
+,,,,0,etc,,,/etc/
+,,,,0,localbin,,,/usr/local/bin/
+0,0,,,0,root,,,/root/
+0,0,,,0,home,,,/home/
+```
+
+---
+## razr
+net
+```
+  10.1.0.247
   ssh tcp/22
   httpd tcp/80 tcp/443
   postgres tcp/5432
@@ -374,11 +538,10 @@ net
 0,0,,,0,home,,,/home/
 ```
 
-## lead
+## rendr
 net
 ```
   85.143.106.13
-  + rendr.misis.ru
   ssh tcp/22
   httpd tcp/80 tcp/443
   postgres tcp/5432
