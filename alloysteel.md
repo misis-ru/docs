@@ -368,7 +368,6 @@ net
   + razr.misis.ru
   ssh tcp/22
   httpd tcp/80 tcp/443
-  postgres tcp/5432
   containers tcp/3000:5000
 ```
 - lk devel app server
@@ -385,8 +384,7 @@ net
 - local backup (\*bur)
 
 ```
-0,,,,0,globals,pgsql
-,0,0,0,,portal_development,pgsql
+,,,,0,burself,,,/opt/bur/,--include=*.bur --exclude=*
 ,,,,0,etc,,,/etc/
 ,,,,0,docker,,,/opt/docker/
 ,,,,0,localbin,,,/usr/local/bin/
@@ -401,12 +399,11 @@ net
   + rendr.misis.ru
   ssh tcp/22
   httpd tcp/80 tcp/443
-  postgres tcp/5432
-  containers tcp/3000:5000
+  apps tcp/3000:5000
 ```
 - lk prod app server
 - docker server
-    - web server (nginx + dockergen)
+    - application servers
         - login.misis.ru lk.misis.ru www.login www.lk
         - lk-new.misis.ru
         - alk.misis.ru
@@ -416,15 +413,13 @@ net
         - anketa.misis.ru www.anketa
         - anketa-new.misis.ru
         - pay-test.misis.ru
-    - application servers
 - build and deploy system (\*doper)
 - ssh server
 - smtp smarthost (postfix)
 - local backup (\*bur)
 
 ```
-0,,,,0,globals,pgsql
-,,,,,portal_production,pgsql
+,,,,0,burself,,,/opt/bur/,--include=*.bur --exclude=*
 ,,,,0,etc,,,/etc/
 ,,,,0,docker,,,/opt/docker/
 ,,,,0,localbin,,,/usr/local/bin/
@@ -450,6 +445,7 @@ net
 ```
 0,,,,0,globals,pgsql
 ,,,,0,portal_development,pgsql
+,,,,0,burself,,,/opt/bur/,--include=*.bur --exclude=*
 ,,,,0,etc,,,/etc/
 ,,,,0,localbin,,,/usr/local/bin/
 0,0,,,0,root,,,/root/
@@ -474,10 +470,41 @@ net
 ```
 0,,,,0,globals,pgsql
 ,,,,0,portal_production,pgsql
+,,,,0,burself,,,/opt/bur/,--include=*.bur --exclude=*
 ,,,,0,etc,,,/etc/
 ,,,,0,localbin,,,/usr/local/bin/
 0,0,,,0,root,,,/root/
 0,0,,,0,home,,,/home/
+```
+
+## antimony
+net
+```
+  85.143.106.23
+  ssh tcp/22
+  httpd tcp/80 tcp/443
+```
+- lk frontend
+- reverce proxy
+    - login.misis.ru lk.misis.ru www.login www.lk
+    - lk-new.misis.ru
+    - alk.misis.ru
+    - alk-new.misis.ru
+    - edu.misis.ru
+    - edu-new.misis.ru
+    - anketa.misis.ru www.anketa
+    - anketa-new.misis.ru
+- web redirector
+- ssh server
+- smtp smarthost (postfix)
+- local backup (\*bur)
+
+```
+,,,,0,burself,,,/opt/bur/,--include=*.bur --exclude=*
+,,,,0,etc,,,/etc/
+,,,,0,root,,,/root/
+,,,,0,home,,,/home/
+0,0,,,0,usrlocal,,,/usr/local/
 ```
 
 ## cerium
@@ -496,11 +523,51 @@ net
 ```
 0,,,,0,globals,pgsql
 ,,,,0,drx,pgsql
+,,,,0,burself,,,/opt/bur/,--include=*.bur --exclude=*
 ,,,,0,etc,,,/etc/
 ,,,,0,localbin,,,/usr/local/bin/
 0,0,,,0,root,,,/root/
 0,0,,,0,home,,,/home/
 ```
+
+## beryllium
+net
+```
+  10.20.39.50
+  ssh tcp/22
+```
+- directum rx docker
+- ssh server
+- smtp smarthost (postfix)
+- local backup (\*bur)
+
+```
+,,,,0,burself,,,/opt/bur/,--include=*.bur --exclude=*
+,,,,0,etc,,,/etc/
+,,,,0,localbin,,,/usr/local/bin/
+0,0,,,0,root,,,/root/
+0,0,,,0,home,,,/home/
+```
+
+## niobium
+net
+```
+  10.20.39.51
+  ssh tcp/22
+```
+- directum rx elasticsearch
+- ssh server
+- smtp smarthost (postfix)
+- local backup (\*bur)
+
+```
+,,,,0,burself,,,/opt/bur/,--include=*.bur --exclude=*
+,,,,0,etc,,,/etc/
+,,,,0,localbin,,,/usr/local/bin/
+0,0,,,0,root,,,/root/
+0,0,,,0,home,,,/home/
+```
+
 
 ---
 ## razr
