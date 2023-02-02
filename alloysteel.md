@@ -504,7 +504,7 @@ net
 ,,,,0,etc,,,/etc/
 ,,,,0,root,,,/root/
 ,,,,0,home,,,/home/
-0,0,,,0,usrlocal,,,/usr/local/
+0,,,,0,usrlocal,,,/usr/local/
 ```
 
 ## cerium
